@@ -29,5 +29,15 @@ resource "tfe_workspace" "managed_workspace" {
       condition     = self.name == "managed-workspace-${count.index}"
       error_message = "This workspace does not have the correct name"
     }
+
+    postcondition {
+      condition     = self.name == "managed-workspace-${count.index}"
+      error_message = "This workspace does not have the correct name again"
+    }
+
+    postcondition {
+      condition     = self.name == "managed-workspace-${count.index}"
+      error_message = "This workspace does not have the correct name a third time"
+    }
   }
 }
